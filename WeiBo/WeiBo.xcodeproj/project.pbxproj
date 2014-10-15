@@ -15,6 +15,7 @@
 		741348BE19EE273F004B3DCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 741348BD19EE273F004B3DCF /* Images.xcassets */; };
 		741348C119EE273F004B3DCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741348BF19EE273F004B3DCF /* LaunchScreen.xib */; };
 		741348CD19EE273F004B3DCF /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 741348CC19EE273F004B3DCF /* WeiBoTests.m */; };
+		741348E319EE4E19004B3DCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 741348E519EE4E19004B3DCF /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		741348C619EE273F004B3DCF /* WeiBoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiBoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		741348CB19EE273F004B3DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		741348CC19EE273F004B3DCF /* WeiBoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiBoTests.m; sourceTree = "<group>"; };
+		741348E419EE4E19004B3DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		741348E619EE4E33004B3DCF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 			children = (
 				741348AE19EE273F004B3DCF /* Info.plist */,
 				741348AF19EE273F004B3DCF /* main.m */,
+				741348E519EE4E19004B3DCF /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -185,6 +189,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 741348A119EE273F004B3DCF;
 			productRefGroup = 741348AB19EE273F004B3DCF /* Products */;
@@ -203,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				741348BC19EE273F004B3DCF /* Main.storyboard in Resources */,
+				741348E319EE4E19004B3DCF /* Localizable.strings in Resources */,
 				741348C119EE273F004B3DCF /* LaunchScreen.xib in Resources */,
 				741348BE19EE273F004B3DCF /* Images.xcassets in Resources */,
 			);
@@ -262,6 +268,15 @@
 				741348C019EE273F004B3DCF /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		741348E519EE4E19004B3DCF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				741348E419EE4E19004B3DCF /* en */,
+				741348E619EE4E33004B3DCF /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -416,6 +431,7 @@
 				741348D219EE273F004B3DCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		741348D319EE273F004B3DCF /* Build configuration list for PBXNativeTarget "WeiBoTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +440,7 @@
 				741348D519EE273F004B3DCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
