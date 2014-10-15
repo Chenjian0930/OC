@@ -16,6 +16,7 @@
 		741348C119EE273F004B3DCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741348BF19EE273F004B3DCF /* LaunchScreen.xib */; };
 		741348CD19EE273F004B3DCF /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 741348CC19EE273F004B3DCF /* WeiBoTests.m */; };
 		741348E319EE4E19004B3DCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 741348E519EE4E19004B3DCF /* Localizable.strings */; };
+		741348F119EE6132004B3DCF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 741348F319EE6132004B3DCF /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,10 @@
 		741348CC19EE273F004B3DCF /* WeiBoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiBoTests.m; sourceTree = "<group>"; };
 		741348E419EE4E19004B3DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		741348E619EE4E33004B3DCF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		741348F219EE6132004B3DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		741348F419EE6134004B3DCF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		741348F519EE61A4004B3DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		741348F619EE61AA004B3DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				741348AE19EE273F004B3DCF /* Info.plist */,
+				741348F319EE6132004B3DCF /* InfoPlist.strings */,
 				741348AF19EE273F004B3DCF /* main.m */,
 				741348E519EE4E19004B3DCF /* Localizable.strings */,
 			);
@@ -211,6 +217,7 @@
 				741348E319EE4E19004B3DCF /* Localizable.strings in Resources */,
 				741348C119EE273F004B3DCF /* LaunchScreen.xib in Resources */,
 				741348BE19EE273F004B3DCF /* Images.xcassets in Resources */,
+				741348F119EE6132004B3DCF /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +282,20 @@
 			children = (
 				741348E419EE4E19004B3DCF /* en */,
 				741348E619EE4E33004B3DCF /* zh-Hans */,
+				741348F619EE61AA004B3DCF /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		741348F319EE6132004B3DCF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				741348F219EE6132004B3DCF /* en */,
+				741348F419EE6134004B3DCF /* zh-Hans */,
+				741348F519EE61A4004B3DCF /* Base */,
+			);
+			name = InfoPlist.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
