@@ -7,9 +7,15 @@
 //
 
 #import "ViewController.h"
-
+#import <objc/runtime.h>
+#import <objc/message.h>
+#import "SQLITE.h"
 @interface ViewController ()
 
+@property (strong,nonatomic) NSString *test1;
+@property (strong,nonatomic) NSString *test2;
+@property (strong,nonatomic) NSString *test3;
+//@property (nonatomic) NSInteger test4;
 @end
 
 @implementation ViewController
@@ -18,19 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     NSLog(@"%@",NSLocalizedString(@"loading",@""));
-    
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://httpbin.org/robots.txt"]];
 
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Success: %@", operation.responseString);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Failure: %@", error);
-//    }];
-//    [operation start];
-    
-    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *dic = @{@"source":@"iphone",@"sign":@"ios",@"password":@"111111",@"loginName":@"18625160299",@"versionNo":@"1"};
@@ -41,22 +35,44 @@
         }else if([responseObject isKindOfClass:[NSArray class]]){
             NSLog(@"NSArray") ;
         }
-        if ([NSJSONSerialization isValidJSONObject:responseObject]){
-            NSObject *obj  = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-            NSLog(@"%@",obj);
-        }
-        NSLog(@"");
+        
+        NSLog(@"%@ \n %@",[responseObject allKeys],[responseObject allValues]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"");
+        NSLog(@"%@",error);
     }];
     
+    [SQLITE  createSalite];
     
-    
+    _test1 = @"test1";
+    _test2 = @"test2";
+    _test3 = @"test3";
+//    _test4 = 4;
+    NSLog( @"%@", [self getPropertyList:self]);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSMutableDictionary *)getPropertyList: (id)tempClass{
+    unsigned int outCount;
+    objc_property_t *properties =       class_copyPropertyList([tempClass class], &outCount);
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    for (int i = 0; i < outCount ; i++)
+    {
+//        const char* propertyName = property_getName(properties[i]);
+//        [propertyArray addObject: [NSString stringWithUTF8String: propertyName]];
+        
+        objc_property_t property = properties[i];
+        NSString * key = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+        id value = objc_msgSend(tempClass,NSSelectorFromString(key));
+        [dic setObject:value ? value : @"" forKey:key];
+    }
+    free(properties); 
+    return dic;
 }
 
 @end
