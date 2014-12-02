@@ -17,6 +17,7 @@
 		741348CD19EE273F004B3DCF /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 741348CC19EE273F004B3DCF /* WeiBoTests.m */; };
 		741348E319EE4E19004B3DCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 741348E519EE4E19004B3DCF /* Localizable.strings */; };
 		741348F119EE6132004B3DCF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 741348F319EE6132004B3DCF /* InfoPlist.strings */; };
+		74289E6D1A2D9B4600512221 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 74289E6C1A2D9B4600512221 /* Download.m */; };
 		742E65131A2C0EE70013A9D5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 742E65121A2C0EE70013A9D5 /* libsqlite3.0.dylib */; };
 		742E65161A2C12460013A9D5 /* SQLITE.m in Sources */ = {isa = PBXBuildFile; fileRef = 742E65151A2C12460013A9D5 /* SQLITE.m */; };
 		746AFBCE19F4F5CF00EDC615 /* GlobalNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 746AFBCD19F4F5CF00EDC615 /* GlobalNetWork.m */; };
@@ -56,6 +57,8 @@
 		741348F419EE6134004B3DCF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		741348F519EE61A4004B3DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		741348F619EE61AA004B3DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		74289E6B1A2D9B4600512221 /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		74289E6C1A2D9B4600512221 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
 		742E65121A2C0EE70013A9D5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		742E65141A2C12460013A9D5 /* SQLITE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLITE.h; sourceTree = "<group>"; };
 		742E65151A2C12460013A9D5 /* SQLITE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLITE.m; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				741348B819EE273F004B3DCF /* ViewController.m */,
 				742E65141A2C12460013A9D5 /* SQLITE.h */,
 				742E65151A2C12460013A9D5 /* SQLITE.m */,
+				74289E6B1A2D9B4600512221 /* Download.h */,
+				74289E6C1A2D9B4600512221 /* Download.m */,
 				741348BA19EE273F004B3DCF /* Main.storyboard */,
 				741348BD19EE273F004B3DCF /* Images.xcassets */,
 				741348BF19EE273F004B3DCF /* LaunchScreen.xib */,
@@ -323,6 +328,7 @@
 				741348B319EE273F004B3DCF /* AppDelegate.m in Sources */,
 				741348B919EE273F004B3DCF /* ViewController.m in Sources */,
 				741348B019EE273F004B3DCF /* main.m in Sources */,
+				74289E6D1A2D9B4600512221 /* Download.m in Sources */,
 				742E65161A2C12460013A9D5 /* SQLITE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

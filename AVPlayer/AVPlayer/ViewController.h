@@ -1,8 +1,8 @@
 //
 //  ViewController.h
-//  WeiBo
+//  AVPlayer
 //
-//  Created by chen on 14-10-15.
+//  Created by chen on 14/12/2.
 //  Copyright (c) 2014年 chen. All rights reserved.
 //
 
@@ -10,7 +10,6 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *progresslabel;
 
 @end
 
