@@ -15,6 +15,7 @@
 		74289E541A2D984900512221 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74289E521A2D984900512221 /* LaunchScreen.xib */; };
 		74289E601A2D984900512221 /* AVPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74289E5F1A2D984900512221 /* AVPlayerTests.m */; };
 		74289E6A1A2D987900512221 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74289E691A2D987900512221 /* AVFoundation.framework */; };
+		7486564E1A358CF700A93F84 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7486564D1A358CF700A93F84 /* 1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		74289E5E1A2D984900512221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74289E5F1A2D984900512221 /* AVPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerTests.m; sourceTree = "<group>"; };
 		74289E691A2D987900512221 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7486564D1A358CF700A93F84 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		74289E431A2D984900512221 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7486564D1A358CF700A93F84 /* 1.mp3 */,
 				74289E441A2D984900512221 /* Info.plist */,
 				74289E451A2D984900512221 /* main.m */,
 			);
@@ -203,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7486564E1A358CF700A93F84 /* 1.mp3 in Resources */,
 				74289E4F1A2D984900512221 /* Main.storyboard in Resources */,
 				74289E541A2D984900512221 /* LaunchScreen.xib in Resources */,
 				74289E511A2D984900512221 /* Images.xcassets in Resources */,
@@ -416,6 +420,7 @@
 				74289E651A2D984900512221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74289E661A2D984900512221 /* Build configuration list for PBXNativeTarget "AVPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				74289E681A2D984900512221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
