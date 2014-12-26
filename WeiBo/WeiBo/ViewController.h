@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *progresslabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 

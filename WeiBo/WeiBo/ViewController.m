@@ -11,6 +11,7 @@
 #import <objc/message.h>
 #import "SQLITE.h"
 #import "Download.h"
+#import <CoreImage/CoreImage.h>
 @interface ViewController ()
 
 @property (strong,nonatomic) NSString *test1;
@@ -25,34 +26,58 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     NSLog(@"%@",NSLocalizedString(@"loading",@""));
-
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *dic = @{@"source":@"iphone",@"sign":@"ios",@"password":@"111111",@"loginName":@"18625160299",@"versionNo":@"1"};
-    [manager POST:@"http://172.16.128.165:80/user/rest/login" parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"NSDictionary") ;
-        }else if([responseObject isKindOfClass:[NSArray class]]){
-            NSLog(@"NSArray") ;
-        }
-        
-        NSLog(@"%@ \n %@",[responseObject allKeys],[responseObject allValues]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-    }];
+    UIImage *temp = [UIImage imageNamed:@"1.png"];
     
+    CIContext *context = [CIContext contextWithOptions:nil];
+//    CIImage *image = [CIImage imageWithCGImage:temp.CGImage];
+//    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+//    [filter setValue:image forKey:kCIInputImageKey];
+//    [filter setValue:@10.0f forKey: @"inputRadius"];
+//    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+//    CGImageRef outImage = [context createCGImage: result fromRect:[result extent]];
+//    UIImage * blurImage = [UIImage imageWithCGImage:outImage];
     
-    [SQLITE  createSalite];
+    CIImage *inputImage = [CIImage imageWithCGImage:temp.CGImage];
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"
+                                  keysAndValues:kCIInputImageKey, inputImage,
+                        @"inputRadius", @(1.0f),
+                        nil];
     
-    _test1 = @"test1";
-    _test2 = @"test2";
-    _test3 = @"test3";
-//    _test4 = 4;
-    NSLog( @"%@", [self getPropertyList:self]);
+    CIImage *outputImage = filter.outputImage;
     
+    CGImageRef outImage = [context createCGImage:outputImage
+                                             fromRect:[outputImage extent]];
     
-    [self downloadFile:@""];
+    [_imageView setImage: [UIImage imageWithCGImage:outImage]];
+    
+//    [_imageView setBackgroundColor:[UIColor blackColor]];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSDictionary *dic = @{@"source":@"iphone",@"sign":@"ios",@"password":@"111111",@"loginName":@"18625160299",@"versionNo":@"1"};
+//    [manager POST:@"http://172.16.128.165:80/user/rest/login" parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+//            NSLog(@"NSDictionary") ;
+//        }else if([responseObject isKindOfClass:[NSArray class]]){
+//            NSLog(@"NSArray") ;
+//        }
+//        
+//        NSLog(@"%@ \n %@",[responseObject allKeys],[responseObject allValues]);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+//    
+//    
+//    [SQLITE  createSalite];
+//    
+//    _test1 = @"test1";
+//    _test2 = @"test2";
+//    _test3 = @"test3";
+////    _test4 = 4;
+//    NSLog( @"%@", [self getPropertyList:self]);
+//    
+//    
+//    [self downloadFile:@""];
 }
 
 - (void)didReceiveMemoryWarning {

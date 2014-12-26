@@ -21,6 +21,8 @@
 		742E65131A2C0EE70013A9D5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 742E65121A2C0EE70013A9D5 /* libsqlite3.0.dylib */; };
 		742E65161A2C12460013A9D5 /* SQLITE.m in Sources */ = {isa = PBXBuildFile; fileRef = 742E65151A2C12460013A9D5 /* SQLITE.m */; };
 		746AFBCE19F4F5CF00EDC615 /* GlobalNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 746AFBCD19F4F5CF00EDC615 /* GlobalNetWork.m */; };
+		74A883C51A4A583B00337F8C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A883C41A4A583B00337F8C /* CoreImage.framework */; };
+		74A883C71A4A5FF900337F8C /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A883C61A4A5FF900337F8C /* 1.png */; };
 		E694B3E37F8F8D154CB2D8C4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F13A11012802415EE0D631F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		746AFBCC19F4F5CF00EDC615 /* GlobalNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalNetWork.h; sourceTree = "<group>"; };
 		746AFBCD19F4F5CF00EDC615 /* GlobalNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalNetWork.m; sourceTree = "<group>"; };
 		746AFBCF19F4F65C00EDC615 /* WeiBo-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeiBo-prefix.pch"; sourceTree = "<group>"; };
+		74A883C41A4A583B00337F8C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		74A883C61A4A5FF900337F8C /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		BA91EE0CA66576D9CCA6C251 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A883C51A4A583B00337F8C /* CoreImage.framework in Frameworks */,
 				742E65131A2C0EE70013A9D5 /* libsqlite3.0.dylib in Frameworks */,
 				E694B3E37F8F8D154CB2D8C4 /* libPods.a in Frameworks */,
 			);
@@ -91,6 +96,7 @@
 		2D4D8739EABE2A17EEDE306E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74A883C41A4A583B00337F8C /* CoreImage.framework */,
 				742E65121A2C0EE70013A9D5 /* libsqlite3.0.dylib */,
 				2F13A11012802415EE0D631F /* libPods.a */,
 			);
@@ -120,6 +126,7 @@
 		741348AC19EE273F004B3DCF /* WeiBo */ = {
 			isa = PBXGroup;
 			children = (
+				74A883C61A4A5FF900337F8C /* 1.png */,
 				746AFBCB19F4F50A00EDC615 /* General */,
 				741348B119EE273F004B3DCF /* AppDelegate.h */,
 				741348B219EE273F004B3DCF /* AppDelegate.m */,
@@ -271,6 +278,7 @@
 				741348BC19EE273F004B3DCF /* Main.storyboard in Resources */,
 				741348E319EE4E19004B3DCF /* Localizable.strings in Resources */,
 				741348C119EE273F004B3DCF /* LaunchScreen.xib in Resources */,
+				74A883C71A4A5FF900337F8C /* 1.png in Resources */,
 				741348BE19EE273F004B3DCF /* Images.xcassets in Resources */,
 				741348F119EE6132004B3DCF /* InfoPlist.strings in Resources */,
 			);
