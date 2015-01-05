@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74754F4B1A5A28380018EDDE /* NewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74754F4A1A5A28380018EDDE /* NewPageViewController.m */; };
 		74B587121A4D4CCF008902DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B587111A4D4CCF008902DD /* main.m */; };
 		74B587151A4D4CCF008902DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B587141A4D4CCF008902DD /* AppDelegate.m */; };
 		74B587181A4D4CCF008902DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B587171A4D4CCF008902DD /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74754F491A5A28380018EDDE /* NewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPageViewController.h; sourceTree = "<group>"; };
+		74754F4A1A5A28380018EDDE /* NewPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPageViewController.m; sourceTree = "<group>"; };
 		74B5870C1A4D4CCF008902DD /* TestAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B587101A4D4CCF008902DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74B587111A4D4CCF008902DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		74B587031A4D4CCF008902DD = {
 			isa = PBXGroup;
 			children = (
+				74754F491A5A28380018EDDE /* NewPageViewController.h */,
+				74754F4A1A5A28380018EDDE /* NewPageViewController.m */,
 				74B5870E1A4D4CCF008902DD /* TestAnimation */,
 				74B587281A4D4CCF008902DD /* TestAnimationTests */,
 				74B5870D1A4D4CCF008902DD /* Products */,
@@ -223,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74754F4B1A5A28380018EDDE /* NewPageViewController.m in Sources */,
 				74B587181A4D4CCF008902DD /* ViewController.m in Sources */,
 				74B587151A4D4CCF008902DD /* AppDelegate.m in Sources */,
 				74B587121A4D4CCF008902DD /* main.m in Sources */,
@@ -416,6 +422,7 @@
 				74B587311A4D4CCF008902DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74B587321A4D4CCF008902DD /* Build configuration list for PBXNativeTarget "TestAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +431,7 @@
 				74B587341A4D4CCF008902DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

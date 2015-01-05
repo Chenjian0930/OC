@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-
+#import "NewPageViewController.h"
 @interface ViewController ()
-
 @property (nonatomic) NSInteger subtype;
+
+@property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 
 @end
 
@@ -119,29 +121,37 @@
     //设置运动type
     animation.type = type;
     if (subtype != nil) {
-        
         //设置子类
         animation.subtype = subtype;
     }
-    
+    NSUInteger green = [[self.view subviews] indexOfObject:self.firstImageView];
+    NSUInteger blue = [[self.view subviews] indexOfObject:self.secondImageView];
+    [self.view exchangeSubviewAtIndex:green withSubviewAtIndex:blue];
     //设置运动速度
     animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
     
     [view.layer addAnimation:animation forKey:@"animation"];
 }
 
-- (void) animationWithView : (UIView *)view WithAnimationTransition : (UIViewAnimationTransition) transition
-{
+- (void) animationWithView : (UIView *)view WithAnimationTransition : (UIViewAnimationTransition) transition{
+   
+    
     [UIView animateWithDuration:0.5 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         [UIView setAnimationTransition:transition forView:view cache:YES];
+        NSUInteger green = [[self.view subviews] indexOfObject:self.firstImageView];
+        NSUInteger blue = [[self.view subviews] indexOfObject:self.secondImageView];
+        [self.view exchangeSubviewAtIndex:green withSubviewAtIndex:blue];
+        
     }];
 }
 
 #pragma 给View添加背景图
--(void)addBgImageWithImageName:(NSString *) imageName
-{
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1.png"]];
+-(void)addBgImageWithImageName:(NSString *) imageName{
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1.png"]];
+    
+    [_firstImageView setImage:[UIImage imageNamed:@"1.png"]];
+    _secondImageView.backgroundColor = [UIColor redColor];
 }
 
 @end
