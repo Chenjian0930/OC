@@ -101,7 +101,8 @@
         id value = objc_msgSend(tempClass,NSSelectorFromString(key));
         [dic setObject:value ? value : @"" forKey:key];
     }
-    free(properties); 
+    free(properties);
+
     return dic;
 }
 
