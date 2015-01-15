@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7445B7B11A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7445B7B01A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m */; };
 		7461B4001A660F210055EA29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B3FF1A660F210055EA29 /* main.m */; };
 		7461B4031A660F210055EA29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B4021A660F210055EA29 /* AppDelegate.m */; };
 		7461B4061A660F210055EA29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B4051A660F210055EA29 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7445B7AF1A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIpackageNewTitleQueryBackHeader_item.h; sourceTree = "<group>"; };
+		7445B7B01A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIpackageNewTitleQueryBackHeader_item.m; sourceTree = "<group>"; };
 		7461B3FA1A660F210055EA29 /* TestSqlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSqlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7461B3FE1A660F210055EA29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7461B3FF1A660F210055EA29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				7461B4051A660F210055EA29 /* ViewController.m */,
 				7461B4231A660F880055EA29 /* SqliteData.h */,
 				7461B4241A660F880055EA29 /* SqliteData.m */,
+				7445B7AF1A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.h */,
+				7445B7B01A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m */,
 				7461B4281A663F9D0055EA29 /* NewsModel.h */,
 				7461B4291A663F9D0055EA29 /* NewsModel.m */,
 				7461B4071A660F210055EA29 /* Main.storyboard */,
@@ -236,6 +241,7 @@
 				7461B42A1A663F9D0055EA29 /* NewsModel.m in Sources */,
 				7461B4061A660F210055EA29 /* ViewController.m in Sources */,
 				7461B4031A660F210055EA29 /* AppDelegate.m in Sources */,
+				7445B7B11A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m in Sources */,
 				7461B4001A660F210055EA29 /* main.m in Sources */,
 				7461B4251A660F880055EA29 /* SqliteData.m in Sources */,
 			);

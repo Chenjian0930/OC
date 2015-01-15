@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "SqliteData.h"
-#import "NewsModel.h"
+#import "APIpackageNewTitleQueryBackHeader_item.h"
 @interface ViewController ()
 
 @end
@@ -19,19 +19,21 @@
     [super viewDidLoad];
     
     NSMutableArray *dataArr = [[NSMutableArray alloc] init];
-    for (int i = 0 ; i <2; ++i) {
-        NewsModel *model = [[NewsModel alloc] init];
-        model.idNew = i +1;
+    for (int i = 0 ; i <10; ++i) {
+        APIpackageNewTitleQueryBackHeader_item *model = [[APIpackageNewTitleQueryBackHeader_item alloc] init];
+        model.articleId = i ;
         model.categoryId = i;
-        model.titleNew = @"标题";
-        model.urlNew = @"urlNew";
-        model.imageUrl = nil;//图片
-        model.createTime = @"createTime";
-        model.isReadNew = (i == 0); //标记 已读未读
-        model.isSaved= (i == 0);// 标记 是否收藏
+        model.contentTitle = @"标题";
+        model.uploadDate = @"createTime";
         [dataArr addObject:model];
     }
-    [[SqliteData shareManager] insertDb:dataArr];;
+    [[SqliteData shareManager] insertDb:dataArr];
+//    [[SqliteData shareManager] setNewsReadTypeByNewId:2];
+//    [[SqliteData shareManager] setNewsSavedType:YES newId:1];
+//    
+//    [dataArr removeAllObjects];
+//    [[SqliteData shareManager] dataGetNewsIsFirstGet:NO];
+    [[SqliteData shareManager]dataGetDefault];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
