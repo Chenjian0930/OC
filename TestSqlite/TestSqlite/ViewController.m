@@ -34,6 +34,7 @@
 //    [dataArr removeAllObjects];
 //    [[SqliteData shareManager] dataGetNewsIsFirstGet:NO];
     NSMutableArray *arr = [[SqliteData shareManager]dataGetDefault];
+    [[SqliteData shareManager] dataGetHeadArticle];
 //    [[SqliteData shareManager] dataGetSavedArticleByPage:1 size:2];
 //    [[SqliteData shareManager] dataGetSavedArticleByPage:2 size:2];
 //    [[SqliteData shareManager] dataGetSavedArticleByBycategoryId:1 Page:0 size:2];

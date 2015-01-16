@@ -215,12 +215,26 @@
 #pragma mark - 获取头条
 - (NSMutableArray *)dataGetHeadArticle{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        NSString *sqlQuery =  [NSString stringWithFormat:@"delete  * from article  where is isHead = 1"];
-        NSMutableArray *arr = [self dataFormat:sqlQuery];
-        sqlite3_close(_db);
-        return arr;
+        sqlite3_stmt * statement;
+        NSString *sqlQuery =  [NSString stringWithFormat:@"delete from article where "];
+        if(sqlite3_prepare_v2(_db, [sqlQuery UTF8String], -1, &statement, nil) == SQLITE_OK){
+            sqlite3_step(statement);
+        }
+        sqlite3_finalize(statement);
     }
     return nil;
+}
+- (BOOL)deleteHeadArticle{
+    if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
+        sqlite3_stmt * statement;
+        NSString *sqlQuery =  [NSString stringWithFormat:@"delete from article where "];
+        if(sqlite3_prepare_v2(_db, [sqlQuery UTF8String], -1, &statement, nil) == SQLITE_OK){
+            sqlite3_step(statement);
+        }
+        sqlite3_finalize(statement);
+        return YES;
+    }
+    return NO;
 }
 
 @end
