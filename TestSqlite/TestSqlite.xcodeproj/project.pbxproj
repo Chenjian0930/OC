@@ -17,7 +17,7 @@
 		7461B41A1A660F210055EA29 /* TestSqliteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B4191A660F210055EA29 /* TestSqliteTests.m */; };
 		7461B4251A660F880055EA29 /* SqliteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B4241A660F880055EA29 /* SqliteData.m */; };
 		7461B4271A660FBB0055EA29 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7461B4261A660FBB0055EA29 /* libsqlite3.dylib */; };
-		7461B42A1A663F9D0055EA29 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B4291A663F9D0055EA29 /* NewsModel.m */; };
+		7461B42A1A663F9D0055EA29 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461B4291A663F9D0055EA29 /* ArticleModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		7461B4231A660F880055EA29 /* SqliteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteData.h; sourceTree = "<group>"; };
 		7461B4241A660F880055EA29 /* SqliteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteData.m; sourceTree = "<group>"; };
 		7461B4261A660FBB0055EA29 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		7461B4281A663F9D0055EA29 /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
-		7461B4291A663F9D0055EA29 /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		7461B4281A663F9D0055EA29 /* ArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleModel.h; sourceTree = "<group>"; };
+		7461B4291A663F9D0055EA29 /* ArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +102,8 @@
 				7461B4241A660F880055EA29 /* SqliteData.m */,
 				7445B7AF1A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.h */,
 				7445B7B01A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m */,
-				7461B4281A663F9D0055EA29 /* NewsModel.h */,
-				7461B4291A663F9D0055EA29 /* NewsModel.m */,
+				7461B4281A663F9D0055EA29 /* ArticleModel.h */,
+				7461B4291A663F9D0055EA29 /* ArticleModel.m */,
 				7461B4071A660F210055EA29 /* Main.storyboard */,
 				7461B40A1A660F210055EA29 /* Images.xcassets */,
 				7461B40C1A660F210055EA29 /* LaunchScreen.xib */,
@@ -238,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7461B42A1A663F9D0055EA29 /* NewsModel.m in Sources */,
+				7461B42A1A663F9D0055EA29 /* ArticleModel.m in Sources */,
 				7461B4061A660F210055EA29 /* ViewController.m in Sources */,
 				7461B4031A660F210055EA29 /* AppDelegate.m in Sources */,
 				7445B7B11A67B16C001D5E44 /* APIpackageNewTitleQueryBackHeader_item.m in Sources */,

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 chen. All rights reserved.
 //
 
-#import "NewsModel.h"
+#import "ArticleModel.h"
 
-@implementation NewsModel
+@implementation ArticleModel
 
 @end

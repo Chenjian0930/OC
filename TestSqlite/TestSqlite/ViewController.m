@@ -33,7 +33,11 @@
 //    
 //    [dataArr removeAllObjects];
 //    [[SqliteData shareManager] dataGetNewsIsFirstGet:NO];
-    [[SqliteData shareManager]dataGetDefault];
+    NSMutableArray *arr = [[SqliteData shareManager]dataGetDefault];
+//    [[SqliteData shareManager] dataGetSavedArticleByPage:1 size:2];
+//    [[SqliteData shareManager] dataGetSavedArticleByPage:2 size:2];
+//    [[SqliteData shareManager] dataGetSavedArticleByBycategoryId:1 Page:0 size:2];
+//    [[SqliteData shareManager] dataGetSavedArticleByBycategoryId:1 Page:2 size:2];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
