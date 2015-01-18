@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SqliteData : NSObject
+@interface ArticleSqliteData : NSObject
 
-+ (SqliteData *)shareManager;
++ (ArticleSqliteData *)shareManager;
 
 //插入数据
 - (void)insertDb:(NSMutableArray*)arr;

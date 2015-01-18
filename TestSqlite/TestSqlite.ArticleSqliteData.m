@@ -6,25 +6,25 @@
 //  Copyright (c) 2015年 chen. All rights reserved.
 //
 
-#import "SqliteData.h"
+#import "ArticleSqliteData.h"
 #import <sqlite3.h>
 #import "ArticleModel.h"
 #define DBNAME    @"data.sqlite"
-@interface SqliteData()
+@interface ArticleSqliteData()
 @property(nonatomic) sqlite3 *db;
 @property(nonatomic,strong) NSString *filePath;
 @end
 
-@implementation SqliteData
+@implementation ArticleSqliteData
 
 
-+ (SqliteData *)shareManager
++ (ArticleSqliteData *)shareManager
 {
-    static SqliteData *manager =  nil;
+    static ArticleSqliteData *manager =  nil;
     static dispatch_once_t dispatchOnece;
     
     dispatch_once(&dispatchOnece, ^{
-        manager = [[SqliteData alloc]init];
+        manager = [[ArticleSqliteData alloc]init];
     });
     return manager;
 }
@@ -46,6 +46,17 @@
     if (![[NSFileManager defaultManager] fileExistsAtPath:_filePath] ) {
         if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK) {
             char *errMsg;
+            //articleId
+            //title
+            //categoryId
+            //category
+            //imageUrl
+            //articleUrl
+            //createTime
+            //isRead
+            //isSaved
+            //isRecent
+            //isHead
             const char *sql_stmt = "create table if not exists article(articleId integer primary key,title text, categoryId integer, category text,imageUrl text , articleUrl text, createTime text, isRead integer default 0 , isSaved integer default 0, isRecent integer , isHead integer default 0)";
             if (sqlite3_exec(_db, sql_stmt, NULL, NULL, &errMsg)!=SQLITE_OK)
             {
@@ -53,16 +64,19 @@
                 
             }else{
                 NSMutableArray *arr = [[NSMutableArray alloc] init];
-                NSString *insertSQL1 = [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(1,1,\"文章标题1-1\",\"www.baidu.com\",\"image\",\"2015-01-01\",\"分类1\",1)"];
-                NSString *insertSQL2= [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(2,1,\"文章标题2-2\",\"www.baidu.com\",\"image\",\"2015-01-02\",\"分类1\",1)"];
+                NSString *insertSQL1 = [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(1,1,\"文章标题1-1\",\"www.baidu.com\",\"http://picapi.ooopic.com/00/87/68/91b1OOOPIC4e.jpg\",\"2015-01-01\",\"分类1\",1)"];
+                NSString *insertSQL2= [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(2,1,\"文章标题2-2\",\"www.baidu.com\",\"http://picapi.ooopic.com/00/87/68/91b1OOOPIC4e.jpg\",\"2015-01-02\",\"分类1\",1)"];
                 
-                NSString *insertSQL3 = [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(3,2,\"文章标题2-1\",\"www.baidu.com\",\"image\",\"2015-01-01\",\"分类2\",1)"];
-                NSString *insertSQL4= [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(4,2,\"文章标题2-2\",\"www.baidu.com\",\"image\",\"2015-01-02\",\"分类2\",1)"];
+                NSString *insertSQL3 = [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(3,2,\"文章标题2-1\",\"www.baidu.com\",\"http://picapi.ooopic.com/00/87/68/91b1OOOPIC4e.jpg\",\"2015-01-01\",\"分类2\",1)"];
+                NSString *insertSQL4= [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent) values(4,2,\"文章标题2-2\",\"www.baidu.com\",\"http://picapi.ooopic.com/00/87/68/91b1OOOPIC4e.jpg\",\"2015-01-02\",\"分类2\",1)"];
+                
+                NSString *insertSQL5= [NSString stringWithFormat:@"insert or replace into article (articleId,categoryId,title,articleUrl,imageUrl,createTime,category,isRecent,isHead) values(5,2,\"文章标题2-2\",\"www.baidu.com\",\"http://picapi.ooopic.com/00/87/68/91b1OOOPIC4e.jpg,http://picapi.ooopic.com/00/87/68/91b1OOOPIC4e.jpg\",\"2015-01-02\",\"分类2\",1,1)"];
                 
                 [arr addObject:insertSQL1];
                 [arr addObject:insertSQL2];
                 [arr addObject:insertSQL3];
                 [arr addObject:insertSQL4];
+                [arr addObject:insertSQL5];
                 for (int i = 0; i < [arr count]; i++) {
                     const char *insert_stmt = [arr[i] UTF8String];
                     char *errorMsg;
@@ -71,8 +85,6 @@
                         NSLog(@"1111");
                     }
                 }
-                
-                
             }
         }else{
             NSLog(@"数据库打开失败");
@@ -139,7 +151,7 @@
 #pragma mark- 获取数据
 - (NSMutableArray*)dataGetNews{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        NSString *sqlQuery = @"select * from article where isRecent = 1";
+        NSString *sqlQuery = @"select * from article where isRecent = 1 and isHead = 0";
         NSMutableArray *arr = [self dataFormat:sqlQuery];
         sqlite3_close(_db);
         return arr;
@@ -150,7 +162,7 @@
 #pragma mark- 获取本地默认 5条新闻
 - (NSMutableArray *)dataGetDefault{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        NSString *sqlQuery = @"select * from article order by - articleId limit 5";
+        NSString *sqlQuery = @"select * from article order by - articleId limit 5 where isHead = 0";
         NSMutableArray *arr = [self dataFormat:sqlQuery];
         sqlite3_close(_db);
         return arr;
@@ -161,7 +173,7 @@
 #pragma mark- 根据categoryId 本地默认  5条新闻
 - (NSMutableArray *)dataGetDefaultBycategoryId:(NSInteger)categoryId{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article order by - articleId limit 5 where categoryId = %ld",(long)categoryId];
+        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article order by - articleId limit 5 where categoryId = %ld and isHead = 0",(long)categoryId];
         NSMutableArray *arr = [self dataFormat:sqlQuery];
         sqlite3_close(_db);
         return arr;}
@@ -174,10 +186,29 @@
         NSMutableArray *dataArr = [[NSMutableArray alloc] init];
         while (sqlite3_step(statement) == SQLITE_ROW){
             ArticleModel *model = [[ArticleModel alloc] init];
+            //articleId
+            //title
+            //categoryId
+            //category
+            //imageUrl
+            //articleUrl
+            //createTime
+            //isRead
+            //isSaved
+            //isRecent
+            //isHead
+            
             model.articleId = sqlite3_column_int(statement, 0);
-            model.categoryId = sqlite3_column_int(statement, 1);
-            model.category =[[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 2)];
-            model.title = [[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 3)];
+            model.title = [[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 1)];
+            model.categoryId = sqlite3_column_int(statement, 2);
+            model.category =[[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 3)];
+            model.imageArr = [[[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 4)] componentsSeparatedByString:@","];
+            model.articleUrl = [[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 5)];
+            model.createTime = [[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 6)];
+            model.isRead = sqlite3_column_int(statement, 7) == 1;
+            model.isSaved = sqlite3_column_int(statement, 8) == 1;
+            model.isHeadArticle = sqlite3_column_int(statement, 9) == 1;
+            
             [dataArr addObject:model];
             }
         sqlite3_finalize(statement);
@@ -187,7 +218,7 @@
 }
 
 - (BOOL)refreshDataBase{
-    NSString *updateSQL = [NSString stringWithFormat:@"update article set isRecent = 0 where isRecent = 1 "];
+    NSString *updateSQL = [NSString stringWithFormat:@"update article set isRecent = 0 and isHead = 0 where isRecent = 1 "];
     const char *update_stmt = [updateSQL UTF8String];
     char *errorMsg;
     return (sqlite3_exec(_db, update_stmt, NULL, NULL, &errorMsg) == SQLITE_OK);
@@ -197,7 +228,7 @@
 #pragma mark-获取收藏的文章
 - (NSMutableArray *)dataGetSavedArticleByPage:(NSInteger)page size:(NSInteger)size{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article  where isSaved = 0 order by - articleId limit %ld offset %ld",(long)size,(long)page*size];
+        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article  where isSaved = 0 and isHead = 0 order by - articleId limit %ld offset %ld",(long)size,(long)page*size];
         NSMutableArray *arr = [self dataFormat:sqlQuery];
         sqlite3_close(_db);
         return arr;}
@@ -205,7 +236,7 @@
 }
 - (NSMutableArray *)dataGetSavedArticleByBycategoryId:(NSInteger)categoryId Page:(NSInteger)page size:(NSInteger)size{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article  where isSaved = 0  and categoryId = %ld order by - articleId limit %ld offset %ld",(long)categoryId,(long)size,(long)page*size];
+        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article  where isSaved = 0  and categoryId = %ld and isHead = 0 order by - articleId limit %ld offset %ld",(long)categoryId,(long)size,(long)page*size];
         NSMutableArray *arr = [self dataFormat:sqlQuery];
         sqlite3_close(_db);
         return arr;}
@@ -215,19 +246,16 @@
 #pragma mark - 获取头条
 - (NSMutableArray *)dataGetHeadArticle{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
-        sqlite3_stmt * statement;
-        NSString *sqlQuery =  [NSString stringWithFormat:@"delete from article where "];
-        if(sqlite3_prepare_v2(_db, [sqlQuery UTF8String], -1, &statement, nil) == SQLITE_OK){
-            sqlite3_step(statement);
-        }
-        sqlite3_finalize(statement);
-    }
+        NSString *sqlQuery =  [NSString stringWithFormat:@"select * from article where isHead = 1"];
+        NSMutableArray *arr = [self dataFormat:sqlQuery];
+        sqlite3_close(_db);
+        return arr;}
     return nil;
 }
 - (BOOL)deleteHeadArticle{
     if (sqlite3_open([_filePath UTF8String], &_db) == SQLITE_OK){
         sqlite3_stmt * statement;
-        NSString *sqlQuery =  [NSString stringWithFormat:@"delete from article where "];
+        NSString *sqlQuery =  [NSString stringWithFormat:@"delete from article where isHead = 1"];
         if(sqlite3_prepare_v2(_db, [sqlQuery UTF8String], -1, &statement, nil) == SQLITE_OK){
             sqlite3_step(statement);
         }
