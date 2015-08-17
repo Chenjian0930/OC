@@ -17,9 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"%@",test_app);
     [self setTitle:@"首页"];
     self.view.backgroundColor = [UIColor whiteColor];
+    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+    view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:view];
+    
 }
 
 - (void)didReceiveMemoryWarning {
